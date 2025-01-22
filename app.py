@@ -4,11 +4,16 @@ from PIL import Image
 import tempfile
 import os
 
+# Get the directory of the current script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Set Streamlit configuration
 st.set_page_config(page_title="Image Processor", layout="centered")
 
 # Load custom CSS
-with open("static/style.css", "r") as f:
+css_path = os.path.join(BASE_DIR, "style.css")  # File is in the same folder as app.py
+
+with open(css_path, "r") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Title and description
